@@ -244,7 +244,7 @@
 		<value>$LOCALIZE[305]</value>
 	</variable>
 	<variable name="Overlay" description="Overlay watched/unwatched indicators">
-		<value condition="Skin.HasSetting(_ShowUnwatched) + ListItem.IsResumable">$INFO[ListItem.Overlay,overlay/1/]</value>
+		<value condition="Skin.HasSetting(_ShowWatched) + ListItem.IsResumable">$INFO[ListItem.Overlay,overlay/1/]</value>
 		<value condition="Skin.HasSetting(_ShowUnwatched) + Skin.HasSetting(_ShowWatched) 
 			+ !ListItem.IsResumable">$INFO[ListItem.Overlay,overlay/2/]</value>
 		<value condition="Skin.HasSetting(_ShowUnwatched) + !Skin.HasSetting(_ShowWatched)  
@@ -303,8 +303,8 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="ItemDetails" description="Item media info">
-		<value condition="Window.IsActive(myvideonav.xml) + ![container.content(episodes)]">$INFO[ListItem.Year,, ⋅ ]$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[16101] ]$INFO[ListItem.Property(TotalEpisodes), (,)]$INFO[ListItem.Duration(mins),, $LOCALIZE[12391] ]</value>
-		<value condition="[Window.IsActive(mymusicnav.xml) | Window.IsActive(mymusicsongs.xml)] + ![Container.Content(songs) | Container.Content(MusicVideos)]">$INFO[ListItem.Genre]$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_YearsActive), ⋅ ]$INFO[ListItem.Year, ⋅ ]$INFO[ListItem.Duration, ⋅ ]</value>
+		<value condition="Window.IsActive(myvideonav.xml) + ![container.content(episodes)]">$INFO[ListItem.Year,, ? ]$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[16101] ]$INFO[ListItem.Property(TotalEpisodes), (,)]$INFO[ListItem.Duration(mins),, $LOCALIZE[12391] ]</value>
+		<value condition="[Window.IsActive(mymusicnav.xml) | Window.IsActive(mymusicsongs.xml)] + ![Container.Content(songs) | Container.Content(MusicVideos)]">$INFO[ListItem.Genre]$INFO[ListItem.Property(Artist_Genre)]$INFO[ListItem.Property(Artist_YearsActive), ? ]$INFO[ListItem.Year, ? ]$INFO[ListItem.Duration, ? ]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.Property(Addon.Version),Ver. ]$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="Plots" description="Plots and descriptions">

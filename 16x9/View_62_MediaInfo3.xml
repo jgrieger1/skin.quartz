@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_62" description="All Video Views">
+		<control type="group" description="Large Infolist2">
+			<visible>Control.IsVisible(62)</visible>
+			<control type="group" description="NON music info">
+				<visible>![container.content(musicvideos) | container.content(movies) | container.content(tvshows) | container.content(seasons)]</visible>
+				<include>DefaultInfoThumbs</include>
+				<include>DefaultMediaInfo</include>
+			</control>
+			<control type="group" description="Music info">
+				<visible>container.content(musicvideos)</visible>
+				<include>DefaultInfoThumbs</include>
+				<include>MusicInfo</include>
+			</control>
+			<control type="group" description="Media info">
+				<visible>container.content(movies) | container.content(tvshows) | container.content(seasons)</visible>
+				<visible>!String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
+				<animation effect="fade" time="400">Visible</animation>
+				<animation effect="fade" time="0">Hidden</animation>
+				<posx>112</posx>
+				<posy>-75</posy>
+				<control type="group" description="Thumbs with info">
+					<posy>193</posy>
+					<posx>0</posx>
+					<control type="image" description="Thumb">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>756</width>
+						<height>495</height>
+						<include>Icon_Fade</include>
+						<texture colordiffuse="$VAR[IconColor]" background="true">$VAR[Thumb]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<bordertexture border="12">img/ThumbBorder.png</bordertexture>
+						<bordersize>9</bordersize>
+					</control>
+				</control>
+				<control type="group" description="Media info Top">
+					<visible>!ListItem.IsParentFolder</visible>
+					<posx>0</posx>
+					<posy>742</posy>
+					<control type="label" description="Main Label">
+						<width>750</width>
+						<font>size22B</font>
+						<textcolor>HL</textcolor>
+						<include>Genre51Commons</include>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>44</posy>
+						<height>1</height>
+						<width>758</width>
+						<texture>img/LineST.png</texture>
+					</control>
+					<control type="textbox" description="Plot51">
+						<include>Plot51Commons</include>
+						<label>$VAR[Plots]</label>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>245</posy>
+						<height>1</height>
+						<width>758</width>
+						<texture>img/LineST.png</texture>
+					</control>
+				</control>
+				<control type="group" description="Media Info Bottom">
+					<posx>0</posx>
+					<posy>907</posy>
+					<control type="label" description="MPAA">
+						<posy>90</posy>
+						<include>Genre51Commons</include>
+						<label>$INFO[ListItem.MPAA]</label>
+					</control>
+					<control type="grouplist">
+						<posx>0</posx>
+						<posy>130</posy>
+						<width>auto</width>
+						<height>33</height>
+						<orientation>horizontal</orientation>
+						<align>left</align>
+						<itemgap>30</itemgap>
+						<control type="label" description="Details">
+							<height>33</height>
+							<width max="735">auto</width>
+							<include>Genre51Commons</include>
+							<label>$VAR[500TopLabel]$VAR[Trailer, • ]</label>
+						</control>
+					</control>
+					<control type="label" description="Genre">
+						<posy>171</posy>
+						<include>Genre51Commons</include>
+						<label>$INFO[ListItem.Genre]</label>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<animation effect="slide" start="0,0" end="0,-243" time="0" condition="String.IsEqual(Container.NumItems,1)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-243" time="0" condition="String.IsEqual(Container.NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-162" time="0" condition="String.IsEqual(Container.NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-162" time="0" condition="String.IsEqual(Container.NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-81" time="0" condition="String.IsEqual(Container.NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-81" time="0" condition="String.IsEqual(Container.NumItems,6)">conditional</animation>
+				<posx>1040</posx>
+				<posy>141</posy>
+				<control type="group" description="Slider">
+					<animation condition="Control.HasFocus(60)" effect="slide" start="0,0" end="960,519" time="300" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(60)" effect="zoom" start="100" end="0" time="300" reversible="true">Conditional</animation>
+					<include>Slider4</include>
+					<animation condition="Container(62).Position(0)" effect="slide" start="0,0" end="0,-405" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(1)" effect="slide" start="0,0" end="0,-324" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(2)" effect="slide" start="0,0" end="0,-243" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(3)" effect="slide" start="0,0" end="0,-162" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(4)" effect="slide" start="0,0" end="0,-81" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(5)" effect="slide" start="0,0" end="0,0" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(6)" effect="slide" start="0,0" end="0,81" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(7)" effect="slide" start="0,0" end="0,162" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(8)" effect="slide" start="0,0" end="0,243" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(9)" effect="slide" start="0,0" end="0,324" time="180" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(62).Position(10)" effect="slide" start="0,0" end="0,405" time="180" easing="inout" reversible="true">Conditional</animation>
+				</control>
+				<control type="fixedlist" id="62">
+					<visible>container.content(Movies) | container.content(TVshows) | container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>802</width>
+					<height>888</height>
+					<onleft condition="!Skin.HasSetting(ViewOptions_Hide)">9000</onleft>
+					<onleft condition="Skin.HasSetting(ViewOptions_Hide)"></onleft>
+					<onright condition="$EXP[isEnabledScrollbar]">9001</onright>
+					<onright condition="!$EXP[isEnabledScrollbar]"></onright>
+					<onup>62</onup>
+					<ondown>62</ondown>
+					<pagecontrol>60</pagecontrol>
+					<viewtype label="$LOCALIZE[544] 3">Media info 3</viewtype>
+					<focusposition>5</focusposition>
+					<movement>4</movement>
+					<preloaditems>4</preloaditems>
+					<scrolltime tween="sine" easing="inout">280</scrolltime>
+					<itemlayout width="802" height="81">
+						<include>Watched_Marks</include>
+						<include>3D_Badge</include>
+						<include>Sets</include>
+						<control type="label" description="Main Label">
+							<visible>Integer.IsGreater(ListItem.VideoResolution,700) | ListItem.IsFolder</visible>
+							<include>52MainLabel</include>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label" description="Main Label">
+							<visible>![Integer.IsGreater(ListItem.VideoResolution,700) | ListItem.IsFolder]</visible>
+							<width>711</width>
+							<include>52MainLabel</include>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label" description="Label2">
+							<visible>container.content(songs) | container.content(musicvideos)</visible>
+							<include>52Label2</include>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="802" height="81">
+						<include>Watched_Marks</include>
+						<include>3D_Badge</include>
+						<include>SetsFO</include>
+						<control type="label" description="Main Label">
+							<visible>Integer.IsGreater(ListItem.VideoResolution,700) | ListItem.IsFolder</visible>
+							<include>52MainLabelFO</include>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label" description="Main Label">
+							<visible>![Integer.IsGreater(ListItem.VideoResolution,700) | ListItem.IsFolder]</visible>
+							<width>711</width>
+							<include>52MainLabelFO</include>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label" description="Label2">
+							<visible>container.content(songs) | container.content(musicvideos)</visible>
+							<include>52Label2FO</include>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<control type="image">
+				<visible>false</visible>
+				<animation effect="fade" time="200">VisibleChange</animation>
+				<visible>Container.Position(5) | Container.HasNext</visible>
+				<posx>1005</posx>
+				<posy>963</posy>
+				<height>81</height>
+				<width>832</width>
+				<texture>img/DefaultGradient.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+	</include>
+</includes>

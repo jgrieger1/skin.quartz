@@ -392,112 +392,60 @@
 				</control>
 			</control>
 			<control type="group" description="Actors">
-				<posy>60</posy>
+				<!-- <posy>60</posy> -->
 				<visible>Control.HasFocus(9012) | Control.HasFocus(50)</visible>
 				<include>VisibleFadeEffect</include>
-				<control type="fixedlist" id="50">
+				<control type="panel" id="50">
 					<visible>Control.HasFocus(9012) | Control.HasFocus(50)</visible>
-					<posx>-240</posx>
+					<posx>240</posx>
 					<posy>111</posy>
-					<width>2400</width>
+					<width>1131</width>
 					<height>885</height>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onup>9012</onup>
-					<ondown>9012</ondown>
-					<viewtype>Actors</viewtype>
-					<focusposition>2</focusposition>
-					<movement></movement>
-					<orientation>horizontal</orientation>
-					<scrolltime easing="inout">280</scrolltime>
-					<itemlayout width="480" height="750">
-						<control type="image" description="Thumb BG">
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>stretch</aspectratio>
-							<texture>img/BlackDot.png</texture>
+					<!-- <onleft>50</onleft> -->
+					<!-- <onright>50</onright> -->
+					<!-- <onup>9012</onup> -->
+					<!-- <ondown>9012</ondown> -->
+					<viewtype label="">list</viewtype>
+					<!-- <focusposition>2</focusposition> -->
+					<!-- <movement></movement> -->
+					<orientation>vertical</orientation>
+					<!-- <scrolltime easing="inout">280</scrolltime> -->
+					   <itemlayout height="73" width="1131">
+						<control type="image">
+						    <posx>0</posx>
+						    <posy>0</posy>
+						    <height>73</height>
+						    <width>1131</width>
+						    <texture border="3">list/bg_facade_nofocus.png</texture>
 						</control>
-						<control type="image" description="Thumb">
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[IconDiffuse]" background="true">DefaultActorSolid.png</texture>
+						<control type="label">
+						    <visible>String.IsEqual(ListItem.Label2,)</visible>
+						    <posx>TextMargin</posx>
+						    <height>71</height>
+						    <width>1041</width>
+						    <label>$INFO[ListItem.Label]</label>
+						    <scroll>false</scroll>
 						</control>
-						<control type="image" description="Thumb">
-							<visible>!String.IsEmpty(ListItem.Thumb)</visible>
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>keep</aspectratio>
-							<texture fallback="DefaultActorSilhouette.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<control type="label">
+						    <visible>!String.IsEqual(ListItem.Label2,)</visible>
+						    <posx>TextMargin</posx>
+						    <height>42</height>
+						    <width>1041</width>
+						    <label>$INFO[ListItem.Label]</label>
+						    <scroll>false</scroll>
 						</control>
-					</itemlayout>
-					<focusedlayout width="480" height="750">
-						<control type="image" description="Thumb BG">
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>stretch</aspectratio>
-							<texture>img/BlackDot.png</texture>
+						<control type="label">
+						    <visible>!String.IsEqual(ListItem.Label2,)</visible>
+						    <posx>TextMargin</posx>
+						    <posy>39</posy>
+						    <height>28</height>
+						    <width>1041</width>
+						    <label>$INFO[ListItem.Label2,$LOCALIZE[20347] ,]</label>
+						    <scroll>false</scroll>
 						</control>
-						<control type="image" description="Thumb">
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[IconDiffuse]" background="true">DefaultActorSolid.png</texture>
-						</control>
-						<control type="image" description="Thumb">
-							<visible>!String.IsEmpty(ListItem.Thumb)</visible>
-							<posx>56</posx>
-							<posy>69</posy>
-							<height>543</height>
-							<width>369</width>
-							<aspectratio>keep</aspectratio>
-							<texture fallback="DefaultActorSilhouette.png" background="true">$INFO[ListItem.Thumb]</texture>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="image" description="Coverflow Selector">
-					<visible>Control.HasFocus(50)</visible>
-					<include>VisibleFadeEffect</include>
-					<posx>748</posx>
-					<posy>152</posy>
-					<width>424</width>
-					<height>600</height>
-					<texture border="36">focus/FrameFO.png</texture>
-					<bordersize>-9</bordersize>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="label" description="Media details">
-					<visible>Control.HasFocus(9012) | control.HasFocus(50)</visible>
-					<posx>345</posx>
-					<posy>735</posy>
-					<width>1230</width>
-					<align>center</align>
-					<textcolor>Silver</textcolor>
-					<font>size22B</font>
-					<label>$INFO[Container(50).ListItem.Label]</label> 
-				</control>
-				<control type="label" description="Media details">
-					<visible>Control.HasFocus(9012) | control.HasFocus(50)</visible>
-					<visible>!String.IsEmpty(Container(50).ListItem.Label2)</visible>
-					<posx>345</posx>
-					<posy>785</posy>
-					<width>1230</width>
-					<align>center</align>
-					<textcolor>Grey3</textcolor>
-					<font>size20</font>
-					<label>[I][B]$LOCALIZE[20347] [CR]$INFO[Container(50).ListItem.Label2][/B][/I]</label> 
+					    </itemlayout>
+					    <focusedlayout height="73" width="1131">
+					    </focusedlayout>
 				</control>
 			</control>
 			<control type="image" description="Navbar">
@@ -516,6 +464,8 @@
 					<posy>993</posy>
 					<width>1920</width>
 					<height>88</height>
+					<onup>back</onup>
+					<ondown>back</ondown>
 					<itemgap>0</itemgap>
 					<aligny>bottom</aligny>
 					<align>center</align>
@@ -541,14 +491,14 @@
 						<altlabel>1024</altlabel>
 						<usealttexture>Container.Content(TVShows)</usealttexture>
 					</control>
-					<control type="button" id="9012" description="Actors">
-						<onup>50</onup>
+					<control type="togglebutton" id="9" description="Resume">
+						<visible>ListItem.IsResumable</visible>
 						<height>66</height>
 						<width>270</width>
 						<align>center</align>
 						<font>size22</font>
-						<label>206</label>
-						<onclick>Control.SetFocus(50)</onclick>
+						<label>$LOCALIZE[13404]</label>
+						<usealttexture>Container.Content(TVShows)</usealttexture>
 					</control>
 					<control type="button" id="11" description="Trailer">
 						<visible>!String.IsEmpty(ListItem.Trailer)</visible>
@@ -558,29 +508,14 @@
 						<align>center</align>
 						<label>20410</label>
 					</control>
-					<control type="button" id="6" description="Refresh">
+					<control type="button" id="9012" description="Actors">
+						<!-- <onup>50</onup> -->
 						<height>66</height>
 						<width>270</width>
 						<align>center</align>
 						<font>size22</font>
-						<label>$LOCALIZE[184]</label>
-					</control>
-					<control type="button" id="10" description="Get Art">
-						<height>66</height>
-						<width>270</width>
-						<align>center</align>
-						<font>size22</font>
-						<label>13511</label>
-					</control>
-					<control type="button" id="9013" description="Show fanart">
-						<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
-						<height>66</height>
-						<width>270</width>
-						<align>center</align>
-						<font>size22</font>
-						<label>$LOCALIZE[31004] [LOWERCASE]$LOCALIZE[20445][/LOWERCASE]</label>
-						<onclick>SetProperty(fanart,$ESCINFO[ListItem.Art(fanart)],home)</onclick>
-						<onclick>ActivateWindow(1104)</onclick>
+						<label>344</label>
+						<!-- <onclick>Control.SetFocus(50)</onclick> -->
 					</control>
 				</control>
 			</control>

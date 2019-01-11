@@ -55,6 +55,7 @@
 	<include file="View_55.xml" />
 	<include file="View_57_FanArt1.xml" />
 	<include file="View_59_FanArt2.xml" />
+	<include file="View_62_MediaInfo3.xml" />
 	<include file="View_500_FanArt3.xml" />
 	<include file="View_501_BigIcons.xml" />
 	<include file="View_502_Panel.xml" />
