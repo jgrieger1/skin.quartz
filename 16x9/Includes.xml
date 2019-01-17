@@ -519,4 +519,10 @@
 			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 		</control>
 	</include>
+	<include name="DialogVideoInfoDefaultControl_Play">
+		<defaultcontrol always="true">8</defaultcontrol>
+	</include>
+	<include name="DialogVideoInfoDefaultControl_Resume">
+		<defaultcontrol always="true">9</defaultcontrol>
+	</include>
 </includes>
